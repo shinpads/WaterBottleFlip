@@ -4,6 +4,7 @@ using System.Collections;
 public class BottleControl : MonoBehaviour {
 	Rigidbody rb;
 	bool touched = false;
+	Vector3 curPos;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -16,7 +17,11 @@ public class BottleControl : MonoBehaviour {
 		else
 			touched = false;
 		if (touched || Input.GetMouseButtonDown(0)) {
-			rb.AddForce (new Vector3 (0, 300, 0));
+			curPos = transform.position;
+			if (curPos.y < 2.5f) {
+				rb.AddForce (new Vector3 (0, 1000, 0));
+				rb.AddTorque (new Vector3 (400, 0, 0));
+			}
 		}
 	}
 }
