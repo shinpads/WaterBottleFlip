@@ -18,9 +18,10 @@ public class BottleControl : MonoBehaviour {
 			touched = false;
 		if (touched || Input.GetMouseButtonDown(0)) {
 			curPos = transform.position;
-			if (curPos.y < 2.5f) {
+			if (curPos.y < 5f) {
 				rb.AddForce (new Vector3 (0, 1000, 0));
-				rb.AddTorque (new Vector3 (400, 0, 0));
+				Animation.Play (); 
+				//rb.AddTorque (new Vector3 (400, 0, 0));
 			}
 		}
 	}
